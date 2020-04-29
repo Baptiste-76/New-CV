@@ -281,17 +281,12 @@ section .heading .h2 {
 }
 
 .timeline > li .timeline-badge {
-  color: #88bef5;
   width: 50px;
   line-height: 50px;
-  font-size: 20px;
-  text-align: center;
   position: absolute;
   top: 16px;
   left: 50%;
   margin-left: -25px;
-  background: #ddd;
-  border-radius: 50%;
 }
 
 .timeline-body {

@@ -269,17 +269,12 @@ section {
         }
 
         .timeline-badge {
-            color: $primaryColor;
             width: 50px;
             line-height: 50px;
-            font-size: 20px;
-            text-align: center;
             position: absolute;
             top: 16px;
             left: 50%;
             margin-left: -25px;
-            background: #ddd;
-            border-radius: 50%;
         }
     }
 }

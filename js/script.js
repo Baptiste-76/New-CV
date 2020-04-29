@@ -2,6 +2,10 @@ $(function() {
     // Technique pour éviter que les éléments de la timeline apparraissent subrepticement avant le début de celle-ci (effet de clignotement) -> cf élément body dans le CSS
     gsap.set('body', {opacity: 1});
 
+    // Gestion de la date dynamique dans le footer
+    let date = document.querySelector('.footerDate');
+    date.textContent = new Date().getFullYear();
+
     // Gestion du scrolling auto
     $(".navbar a, footer a").on("click", function(event) {
         event.preventDefault();
@@ -152,8 +156,7 @@ $(function() {
         .from('#experience .white-divider', {duration: 1, autoAlpha: 0, y: 200}, "-=0.5")
         .from('#experience .heading', {duration: 1, autoAlpha: 0, y: 200}, "<")
         .from('.timeline', {duration: 1, opacity: 0})
-        .from('.timeline-badge', {duration: 0.2, autoAlpha: 0, y: -50})
-        .from('.timeline-badge i', {duration: 0.2, autoAlpha: 0, y: 50}, "+=0.5")
+        .from('.timeline-badge', {duration: 0.5, autoAlpha: 0, y: 50})
         .from('.timeline-panel', {duration: 1, autoAlpha: 0, stagger: 0.2, xPercent: gsap.utils.wrap([-200, 150, -150, 200]), yPercent: gsap.utils.wrap([100, -200, 200, -100])}, "-=1")
         .from('.timeline-heading h3', {duration: 0.3, autoAlpha: 0, y: 100}, "-=0.5")
         .from('.timeline-heading h4', {duration: 0.3, autoAlpha: 0, y: 100})
