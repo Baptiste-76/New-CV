@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: 'Baloo Paaji 2', cursive;
+  font-family: 'Comfortaa', cursive;
   position: relative;
   margin: 0;
   padding: 0;
@@ -142,8 +142,9 @@ section .heading .h2 {
   background: #88bef5;
 }
 
-#about .heading h1 {
+#about .heading h2 {
   color: white;
+  padding: 10px 0;
   margin-top: 30px;
   font-weight: normal;
   background: #333;
@@ -293,6 +294,10 @@ section .heading .h2 {
   border-radius: 50%;
 }
 
+.timeline-body {
+  font-size: 16px;
+}
+
 .timeline-body a {
   text-decoration: none;
   color: #88bef5;
@@ -417,7 +422,7 @@ section .heading .h2 {
           box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.education-block h5 {
+.education-block h6 {
   color: #333;
   font-size: 18px;
   margin-bottom: 15px;
@@ -427,12 +432,12 @@ section .heading .h2 {
   font-size: 40px;
 }
 
-.education-block h3 {
+.education-block h4 {
   color: #88bef5;
   margin-top: 20px;
 }
 
-.education-block h4 {
+.education-block h5 {
   margin-bottom: 20px;
 }
 
@@ -461,6 +466,7 @@ section .heading .h2 {
   -webkit-perspective: 500px;
           perspective: 500px;
   padding: 10px 15px;
+  cursor: pointer;
 }
 
 #portfolio .img-box img {
@@ -498,6 +504,22 @@ section .heading .h2 {
 #portfolio .img-thumbnail-inverted {
   -webkit-transform: rotate(-3deg);
           transform: rotate(-3deg);
+}
+
+.modal-content {
+  background-color: #fcefee;
+}
+
+.modal-header .modal-title {
+  color: #88bef5;
+}
+
+.modal-header span {
+  color: #88bef5;
+}
+
+.modal-body h5 {
+  margin: 20px 30px;
 }
 
 /* QUI SUIS-JE */

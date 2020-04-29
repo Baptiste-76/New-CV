@@ -81,7 +81,7 @@ $(function() {
     })
 
     // Gestion du typewriter
-    const textAnim = document.querySelector('.heading h1');
+    const textAnim = document.querySelector('.heading h2#type-writer');
     
     new Typewriter(textAnim, {
         delay: 50,
@@ -148,7 +148,7 @@ $(function() {
     experienceTL = gsap.timeline();
 
     experienceTL
-        .to(experienceOverlay, {duration: 1, opacity: 0, ease: "expo.in"})
+        .to(experienceOverlay, {duration: 1, xPercent: 200, ease: "expo.in"})
         .from('#experience .white-divider', {duration: 1, autoAlpha: 0, y: 200}, "-=0.5")
         .from('#experience .heading', {duration: 1, autoAlpha: 0, y: 200}, "<")
         .from('.timeline', {duration: 1, opacity: 0})

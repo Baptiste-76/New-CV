@@ -8,7 +8,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
         <!-- Font-Family -->
-        <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700;800&display=swap" rel="stylesheet"> 
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">  -->
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 
         <!-- Font-Awesome-->
         <script src="https://kit.fontawesome.com/dbc1e24743.js" crossorigin="anonymous"></script>
@@ -73,8 +74,8 @@
                 <img src="images/me.jpg" alt="Photo de moi" class="rounded-circle">
             </div>
             <div class="heading">
-                <h1 id="type-writer">Moi c'est Baptiste Bidaux, Développeur Web</h1>
-                <a href="docs/curriculumVitaeBaptisteBidaux.pdf" class="button1 share-button">Télécharger CV</a>
+                <h2 id="type-writer">Moi c'est Baptiste Bidaux, Développeur Web</h2>
+                <a href="docs/curriculumVitaeBaptisteBidaux.pdf" class="button1 share-button" target="_blank">Télécharger CV</a>
                 <div class="media-container">
                     <div class="media-btn share-button">
                         <a href="https://www.linkedin.com/in/baptiste-bidaux/" target="_blank">
@@ -448,10 +449,10 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="education-block">
-                            <h5>2019</h5>
+                            <h6>2019</h6>
                             <i class="fas fa-graduation-cap"></i>
-                            <h3>Titre Professionnel de Développeur Web</h3>
-                            <h4>AFPA - Saint-Etienne-Du-Rouvray</h4>
+                            <h4>Titre Professionnel de Développeur Web</h4>
+                            <h5>AFPA - Saint-Etienne-Du-Rouvray</h5>
                             <div class="blue-divider"></div>
                             <p>HTML, CSS, JavaScript, Bootstrap</p>
                             <p>PHP, Symfony, MySQL, POO, Pattern MVC</p>
@@ -459,20 +460,20 @@
                     </div>
                     <div class="col-md-4">
                         <div class="education-block">
-                            <h5>2006</h5>
+                            <h6>2006</h6>
                             <i class="fas fa-graduation-cap"></i>
-                            <h3>BTS Banque</h3>
-                            <h4>Centre de Formation de la Profession Bancaire</h4>
+                            <h4>BTS Banque</h4>
+                            <h5>Centre de Formation de la Profession Bancaire</h5>
                             <div class="blue-divider"></div>
                             <p>Option "marché des particuliers"</p>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="education-block">
-                            <h5>2004</h5>
+                            <h6>2004</h6>
                             <i class="fas fa-graduation-cap"></i>
-                            <h3>Baccalauréat Économique et Social</h3>
-                            <h4>Lycée de la Vallée du Cailly</h4>
+                            <h4>Baccalauréat Économique et Social</h4>
+                            <h5>Lycée de la Vallée du Cailly</h5>
                         </div>
                     </div>
                 </div>
@@ -487,34 +488,143 @@
                     <h2>Portfolio</h2>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 img-box">
-                        <a href="https://yusit.fr/" target="_blank" rel="noopener">
-                            <img src="images/yusit.png" alt="Yusit" class="img-thumbnail">
-                        </a>
+                    <div class="col-lg-4 col-md-6 img-box" data-toggle="modal" data-target="#yusitModal">
+                        <img src="images/yusit.png" alt="Yusit" class="img-thumbnail">
                     </div>
-                    <div class="col-lg-4 col-md-6 img-box">
-                        <a href="https://app-symfony-api-platform-react.herokuapp.com/#/" target="_blank" rel="noopener">
+                    <div class="col-lg-4 col-md-6 img-box" data-toggle="modal" data-target="#symreactModal">
                             <img src="images/symreact.png" alt="Gestionnaire de Factures" class="img-thumbnail img-thumbnail-inverted">
-                        </a>
                     </div>
-                    <div class="col-lg-4 col-md-6 img-box">
-                        <a href="https://mon-bnb.herokuapp.com/" target="_blank" rel="noopener">
+                    <div class="col-lg-4 col-md-6 img-box" data-toggle="modal" data-target="#monbnbModal">
                             <img src="images/monbnb.png" alt="Mon BnB" class="img-thumbnail">
-                        </a>
                     </div>
-                    <div class="col-lg-4 col-md-6 img-box">
-                        <a href="https://chatbox-baptiste.netlify.app/" target="_blank" rel="noopener">
+                    <div class="col-lg-4 col-md-6 img-box" data-toggle="modal" data-target="#chatboxModal">
                             <img src="images/chatbox.png" alt="Chatbox" class="img-thumbnail img-thumbnail-inverted">
-                        </a>
                     </div>
-                    <div class="col-lg-4 col-md-6 img-box">
-                        <a href="https://my-recipe-box-baptiste.netlify.app/" target="_blank" rel="noopener">
+                    <div class="col-lg-4 col-md-6 img-box" data-toggle="modal" data-target="#maboitearecettesModal">
                             <img src="images/maboitearecettes.png" alt="Ma Boîte à Recettes" class="img-thumbnail">
-                        </a>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Modals -->
+
+        <div id="yusitModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="yusitModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="yusitModal">Yusit.fr</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <h5 class="text-center">
+                            Refonte complète du site web de l'entreprise YuSit
+                        </h5>
+                        <img src="images/yusit.png" alt="Yusit" class="w-100"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <a type="button" class="btn btn-success text-white" href="https://yusit.fr/" target="_blank" rel="noopener">Visiter le site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="symreactModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="symreactModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="symreactModal">SymReact</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <h5 class="text-center">
+                            Création d'une API de gestion de factures grâce à React & Api Platform
+                        </h5>
+                        <img src="images/symreact.png" alt="Gestionnaire de Factures" class="w-100"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <a type="button" class="btn btn-success text-white" href="https://app-symfony-api-platform-react.herokuapp.com/#/" target="_blank" rel="noopener">Visiter le site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="monbnbModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="monbnbModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="monbnbModal">Mon BnB</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <h5 class="text-center">
+                            Création d'un site de BnB en Symfony 4
+                        </h5>
+                        <img src="images/monbnb.png" alt="Mon BnB" class="w-100"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <a type="button" class="btn btn-success text-white" href="https://mon-bnb.herokuapp.com/" target="_blank" rel="noopener">Visiter le site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="chatboxModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="chatboxModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="chatboxModal">Chatbox</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <h5 class="text-center">
+                            Création d'un mini Chat en React
+                        </h5>
+                        <img src="images/chatbox.png" alt="Chatbox" class="w-100"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <a type="button" class="btn btn-success text-white" href="https://chatbox-baptiste.netlify.app/" target="_blank" rel="noopener">Visiter le site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="maboitearecettesModal" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="maboitearecettesModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="maboitearecettesModal">Ma Boîte à Recettes</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <h5 class="text-center">
+                            Création d'un site de Recettes en React
+                        </h5>
+                        <img src="images/maboitearecettes.png" alt="Ma Boîte à Recettes" class="w-100"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <a type="button" class="btn btn-success text-white" href="https://my-recipe-box-baptiste.netlify.app/" target="_blank" rel="noopener">Visiter le site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Fin modals -->
 
         <section id="who-am-i">
             <div class="overlay"></div>
