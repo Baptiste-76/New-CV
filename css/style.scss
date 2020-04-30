@@ -16,6 +16,7 @@ body {
     box-sizing: border-box;
     width: 100%;
     overflow-x: hidden;
+    background: $secondaryColor;
     // Technique pour éviter que les éléments de la timeline apparraissent subrepticement avant le début de celle-ci (effet de clignotement) -> cf début du JavaScript
     opacity: 0;
 }
@@ -44,6 +45,16 @@ section {
             text-transform: uppercase;
         }
     }
+}
+
+.curved {
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+}
+
+.slow-curved {
+    border-bottom-left-radius: 50% 10%;
+    border-bottom-right-radius: 50% 10%;
 }
 
 .button1 {
@@ -91,7 +102,6 @@ section {
 
 .container {
     position: relative;
-    overflow: hidden;
 }
 
 /* MENU */
@@ -146,8 +156,9 @@ section {
         font-weight: normal;
         background: #333;
         width: 50%;
-        margin: 30px auto 0 auto;
+        margin: 30px auto 10px auto;
         border-radius: 999px;
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     }
 }
 
@@ -155,6 +166,10 @@ section {
     text-align: center;
     margin: 0 auto;
     float: none;
+
+    img {
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    }
 }
 
 .share-button {
@@ -215,6 +230,7 @@ section {
         height: 35px;
         margin: 30px 20px 0 20px;
         background: #ddd;
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
         h5 {
             text-shadow: 1px 1px 1px black;
@@ -323,7 +339,7 @@ section {
     border-radius: 7px;
     padding: 20px 25px;
     position: relative;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     background: #fff;
 
     &:after {
@@ -466,7 +482,7 @@ section {
         height: 95%;
         filter: grayscale(100%);
         -webkit-filter: grayscale(100%);
-        box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
+        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
         transform: rotate(3deg);
         perspective: 500px;
 
@@ -483,6 +499,7 @@ section {
 
 .modal-content {
     background-color: $secondaryColor;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .modal-header {
@@ -495,8 +512,14 @@ section {
     }
 }
 
-.modal-body h5 {
-    margin: 20px 30px;
+.modal-body {
+    h5 {
+        margin: 20px 30px;
+    }
+
+    img {
+        margin-bottom: 20px;
+    }
 }
 
 /* QUI SUIS-JE */
@@ -562,6 +585,7 @@ section {
     background-color: $secondaryColor;
     color: $primaryColor;
     padding: 50px 80px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
     input[type=submit] {
         margin: 40px auto 0px;

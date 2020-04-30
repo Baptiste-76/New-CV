@@ -1,13 +1,13 @@
 <?php
     $data = [
-        "firstName" => "",
         "lastName" => "",
+        "firstName" => "",
         "email" => "",
         "phone" => "",
         "subject" => "",
         "message" => "",
-        "firstNameError" => "",
         "lastNameError" => "",
+        "firstNameError" => "",
         "emailError" => "",
         "phoneError" => "",
         "subjectError" => "",
@@ -17,8 +17,8 @@
     $emailTo = "baptistelise@orange.fr";
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $data["firstName"] = checkInput($_POST['firstName']);
         $data["lastName"] = checkInput($_POST['lastName']);
+        $data["firstName"] = checkInput($_POST['firstName']);
         $data["email"] = checkInput($_POST['email']);
         $data["phone"] = checkInput($_POST['phone']);
         $data["subject"] = checkInput($_POST['subject']);
@@ -26,21 +26,35 @@
         $data ["isSuccess"] = true;
         $emailToText = "";
 
-        if (empty($data["firstName"])) {
-            $data["firstNameError"] = "Je veux connaître votre prénom !";
-            $data["isSuccess"] = false;
-        } else {
-            $emailToText .= "Prénom: {$data["firstName"]} \n";
-        }
-
         if (empty($data["lastName"])) {
-            $data["lastNameError"] = "Et oui je veux tout savoir. Même votre nom !";
+            $data["lastNameError"] = "À qui ai-je l'honneur !?";
+            $data["isSuccess"] = false;
+        } else if (strlen($data["lastName"]) < 3) {
+            $data["lastNameError"] = "Votre nom doit comporter au moins 3 caractères !";
+            $data["isSuccess"] = false;
+        } else if (strlen($data["lastName"]) > 30) {
+            $data["lastNameError"] = "Votre nom doit comporter moins de 30 caractères !";
             $data["isSuccess"] = false;
         } else {
             $emailToText .= "Nom: {$data["lastName"]} \n";
         }
 
-        if(!isEmail($data["email"])) {
+        if (empty($data["firstName"])) {
+            $emailToText .= "Prénom: non-renseigné \n";
+        } else if(strlen($data["firstName"]) < 3) {
+            $data["firstNameError"] = "Votre prénom doit comporter au moins 3 caractères !";
+            $data["isSuccess"] = false;
+        } else if(strlen($data["firstName"]) > 30) {
+            $data["firstNameError"] = "Votre prénom doit comporter moins de 30 caractères !";
+            $data["isSuccess"] = false;
+        } else {
+            $emailToText .= "Prénom: {$data["firstName"]} \n";
+        }
+
+        if (empty($data["email"])) {
+            $data["emailError"] = "Je souhaiterais pouvoir vous recontacter !";
+            $data["isSuccess"] = false;
+        } else if(!isEmail($data["email"])) {
             $data["emailError"] = "Bizarre ce mail non !?";
             $data["isSuccess"] = false;
         } else {
@@ -48,7 +62,7 @@
         }
 
         if (!isPhone($data["phone"])) {
-            $data["phoneError"] = "Que des chiffres et/ou des espaces svp !";
+            $data["phoneError"] = "Votre numéro de téléphone ne semble pas valide !";
             $data["isSuccess"] = false;
         } else {
             $emailToText .= "Téléphone: {$data["phone"]} \n";
@@ -63,6 +77,12 @@
 
         if (empty($data["message"])) {
             $data["messageError"] = "Que voulez-vous me dire ?";
+            $data["isSuccess"] = false;
+        } else if (strlen($data["message"]) < 10) {
+            $data["messageError"] = "Votre message doit comporter au moins 10 caractères !";
+            $data["isSuccess"] = false;
+        } else if (strlen($data["message"]) > 10000) {
+            $data["messageError"] = "Votre message doit comporter moins de 10000 caractères !";
             $data["isSuccess"] = false;
         } else {
             $emailToText .= "Message: {$data["message"]} \n";
@@ -83,7 +103,7 @@
     }
 
     function isPhone($var) {
-        return preg_match("/^[0-9 ]*$/", $var);
+        return preg_match("/^([+(\d]{1})(([\d+() -.]){5,16})([+(\d]{1})$/", $var);
     }
 
     function checkInput($var) {

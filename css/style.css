@@ -18,6 +18,7 @@ body {
           box-sizing: border-box;
   width: 100%;
   overflow-x: hidden;
+  background: #fcefee;
   opacity: 0;
 }
 
@@ -45,6 +46,16 @@ section .heading {
 
 section .heading .h2 {
   text-transform: uppercase;
+}
+
+.curved {
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+
+.slow-curved {
+  border-bottom-left-radius: 50% 10%;
+  border-bottom-right-radius: 50% 10%;
 }
 
 .button1 {
@@ -93,7 +104,6 @@ section .heading .h2 {
 
 .container {
   position: relative;
-  overflow: hidden;
 }
 
 /* MENU */
@@ -149,14 +159,21 @@ section .heading .h2 {
   font-weight: normal;
   background: #333;
   width: 50%;
-  margin: 30px auto 0 auto;
+  margin: 30px auto 10px auto;
   border-radius: 999px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .profile-picture {
   text-align: center;
   margin: 0 auto;
   float: none;
+}
+
+.profile-picture img {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .share-button {
@@ -227,6 +244,8 @@ section .heading .h2 {
   height: 35px;
   margin: 30px 20px 0 20px;
   background: #ddd;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 #skills .progress h5 {
@@ -333,8 +352,8 @@ section .heading .h2 {
   border-radius: 7px;
   padding: 20px 25px;
   position: relative;
-  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-          box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   background: #fff;
 }
 
@@ -483,8 +502,8 @@ section .heading .h2 {
   height: 95%;
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
-  -webkit-box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-transform: rotate(3deg);
           transform: rotate(3deg);
   -webkit-perspective: 500px;
@@ -503,6 +522,8 @@ section .heading .h2 {
 
 .modal-content {
   background-color: #fcefee;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .modal-header .modal-title {
@@ -515,6 +536,10 @@ section .heading .h2 {
 
 .modal-body h5 {
   margin: 20px 30px;
+}
+
+.modal-body img {
+  margin-bottom: 20px;
 }
 
 /* QUI SUIS-JE */
@@ -578,6 +603,8 @@ section .heading .h2 {
   background-color: #fcefee;
   color: #88bef5;
   padding: 50px 80px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 #contact-form input[type=submit] {

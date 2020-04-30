@@ -39,8 +39,8 @@ $(function() {
                     $("#contact-form")[0].reset();
                 } else {
                     // Sinon on fait apparaître le message d'erreur dans le <p class="comments">  du champ concerné. (Pour rappel, ce message était aussi stocké dans la variable $data au moment du traitement du formulaire par le PHP). Si un champ n'a pas d'erreur, son nomVariableError sera égal à "".
-                    $("#firstName + .comments").html(response.firstNameError);
                     $("#lastName + .comments").html(response.lastNameError);
+                    $("#firstName + .comments").html(response.firstNameError);
                     $("#email + .comments").html(response.emailError);
                     $("#phone + .comments").html(response.phoneError);
                     $("#subject + .comments").html(response.subjectError);
@@ -132,7 +132,7 @@ $(function() {
     skillsTL = gsap.timeline();
 
     skillsTL
-        .to(skillsOverlay, {duration: 1, opacity: 0, ease: "expo.in"})
+        .to(skillsOverlay, {duration: 1, xPercent: 200, ease: "expo.in"})
         .from('#skills .blue-divider', {duration: 1, autoAlpha: 0, y: 200}, "-=0.5")
         .from('#skills .heading', {duration: 1, autoAlpha: 0, y: 200}, "<")
         .from('.progress', {duration: 1, autoAlpha: 0, stagger: 0.2, xPercent: gsap.utils.wrap([100, -100])});
