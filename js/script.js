@@ -11,6 +11,8 @@ $(function() {
         event.preventDefault();
         let hash = this.hash;
 
+        console.log(hash);
+
         $('body, html').animate({
             scrollTop: $(hash).offset().top
         }, 1000);
@@ -128,12 +130,10 @@ $(function() {
     // ---------------
 
     skillsSection = $('section#skills');
-    skillsOverlay = skillsSection.find('.overlay');
     skillsTL = gsap.timeline();
 
     skillsTL
-        .to(skillsOverlay, {duration: 1, xPercent: 200, ease: "expo.in"})
-        .from('#skills .blue-divider', {duration: 1, autoAlpha: 0, y: 200}, "-=0.5")
+        .from('#skills .beige-divider', {duration: 1, autoAlpha: 0, y: 200})
         .from('#skills .heading', {duration: 1, autoAlpha: 0, y: 200}, "<")
         .from('.progress', {duration: 1, autoAlpha: 0, stagger: 0.2, xPercent: gsap.utils.wrap([100, -100])});
 
@@ -148,12 +148,10 @@ $(function() {
     // ---------------
 
     experienceSection = $('section#experience');
-    experienceOverlay = experienceSection.find('.overlay');
     experienceTL = gsap.timeline();
 
     experienceTL
-        .to(experienceOverlay, {duration: 1, xPercent: 200, ease: "expo.in"})
-        .from('#experience .white-divider', {duration: 1, autoAlpha: 0, y: 200}, "-=0.5")
+        .from('#experience .white-divider', {duration: 1, autoAlpha: 0, y: 200})
         .from('#experience .heading', {duration: 1, autoAlpha: 0, y: 200}, "<")
         .from('.timeline', {duration: 1, opacity: 0})
         .from('.timeline-badge', {duration: 0.5, autoAlpha: 0, y: 50})
@@ -174,12 +172,10 @@ $(function() {
     // ---------------
 
     educationSection = $('section#education');
-    educationOverlay = educationSection.find('.overlay');
     educationTL = gsap.timeline();
 
     educationTL
-        .to(educationOverlay, {duration: 1, xPercent: 200, ease: "expo.in"})
-        .from('#education .blue-divider', {duration: 1, autoAlpha: 0, y: 200}, "-=0.5")
+        .from('#education .beige-divider', {duration: 1, autoAlpha: 0, y: 200})
         .from('#education .heading', {duration: 1, autoAlpha: 0, y: 200}, "<")
         .from('.education-block', {duration: 1.5, autoAlpha: 0, scale: 1.5, y: -400, rotation: 360, stagger: 0.5, ease: "circ.out"});
 
@@ -194,12 +190,10 @@ $(function() {
     // ---------------
 
     portfolioSection = $('section#portfolio');
-    portfolioOverlay = portfolioSection.find('.overlay');
     portfolioTL = gsap.timeline();
 
     portfolioTL
-        .to(portfolioOverlay, {duration: 1, xPercent: 200, ease: "expo.in"})
-        .from('#portfolio .white-divider', {duration: 1, autoAlpha: 0, y: 200}, "-=0.5")
+        .from('#portfolio .white-divider', {duration: 1, autoAlpha: 0, y: 200})
         .from('#portfolio .heading', {duration: 1, autoAlpha: 0, y: 200}, "<")
         .from('.img-box', {duration: 1.5, scale: 0, autoAlpha: 0, stagger: 0.2});
 
@@ -214,12 +208,10 @@ $(function() {
     // ---------------
 
     whoAmISection = $('section#who-am-i');
-    whoAmIOverlay = whoAmISection.find('.overlay');
     whoAmITL = gsap.timeline();
 
     whoAmITL
-        .to(whoAmIOverlay, {duration: 1, xPercent: 200, ease: "expo.in"})
-        .from('#who-am-i .blue-divider', {duration: 1, autoAlpha: 0, y: 200}, "-=0.5")
+        .from('#who-am-i .beige-divider', {duration: 1, autoAlpha: 0, y: 200})
         .from('#who-am-i .heading', {duration: 1, autoAlpha: 0, y: 200}, "<")
         .from('.carousel-control-prev-icon', {duration: 2, autoAlpha: 0, x: -200})
         .from('.carousel-control-next-icon', {duration: 2, autoAlpha: 0, x: 200}, "<")
@@ -237,17 +229,18 @@ $(function() {
     // ---------------
 
     contactSection = $('section#contact');
-    contactOverlay = contactSection.find('.overlay');
     contactTL = gsap.timeline();
 
     contactTL
-        .to(contactOverlay, {duration: 1, xPercent: 200, ease: "expo.in"})
-        .from('#contact .white-divider', {duration: 1, autoAlpha: 0, y: 200}, "-=0.5")
+        .from('#contact .white-divider', {duration: 1, autoAlpha: 0, y: 200})
         .from('#contact .heading', {duration: 1, autoAlpha: 0, y: 200}, "<")
         .from('form', {duration: 1, autoAlpha: 0, scale: 0, ease: "back.out(2)"})
         .from('.form-group', {duration: 0.5, scale: 0, stagger: 0.4})
         .from('form .row .col-12 p', {duration: 0.5, scale: 0}, "-=0.1")
-        .from('input[type=submit]', {duration: 1.5, autoAlpha: 0, y: 200}, "-=0.5");
+        .from('input[type=submit]', {duration: 1.5, autoAlpha: 0, y: 200}, "-=0.5")
+        .from('.contact-methods', {duration: 1, autoAlpha: 0, scale: 0, ease: "back.out(2)"}, 1.5)
+        .from('.contact-method h4', {duration: 1, autoAlpha: 0, y: 100}, 2)
+        .from('.contact-method p', {duration: 1, autoAlpha: 0, y: 100}, 2.5);
 
     let contactScene = new ScrollMagic.Scene({
         triggerElement: contactSection[0]

@@ -61,7 +61,9 @@
             $emailToText .= "Email: {$data["email"]} \n";
         }
 
-        if (!isPhone($data["phone"])) {
+        if (empty($data["phone"])) {
+            $emailToText .= "Téléphone: non-renseigné \n";
+        } else if (!isPhone($data["phone"])) {
             $data["phoneError"] = "Votre numéro de téléphone ne semble pas valide !";
             $data["isSuccess"] = false;
         } else {

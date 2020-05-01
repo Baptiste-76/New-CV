@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
         <!-- Font-Family -->
-        <!-- <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">  -->
         <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 
         <!-- Font-Awesome-->
@@ -34,10 +33,10 @@
          <!-- Boxicons -->
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-        <title>CV - Baptiste Bidaux</title>
+        <title>Baptiste Bidaux - Développeur Web</title>
     </head>
     <body data-spy="scroll" data-target="#myNavbar" data-offset="300">
-        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <nav class="navbar navbar-expand-xl navbar-dark fixed-top">
             <a href="#" class="navbar-brand"></a>
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,33 +44,61 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav-pills navbar-nav">
                     <li class="nav-item">
-                        <a href="#about" class="nav-link">Moi</a>
+                        <a href="#home" class="nav-link">
+                            <i class="fas fa-home"></i></i>
+                            <br>
+                            Accueil
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#skills" class="nav-link">Compétences</a>
+                        <a href="#skills" class="nav-link">
+                            <i class="fas fa-code"></i>
+                            <br>
+                            Compétences
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#experience" class="nav-link">Expérience</a>
+                        <a href="#experience" class="nav-link">
+                            <i class="fas fa-briefcase"></i>
+                            <br>
+                            Expérience
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#education" class="nav-link">Éducation</a>
+                        <a href="#education" class="nav-link">
+                            <i class="fas fa-graduation-cap"></i>
+                            <br>
+                            Éducation
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#portfolio" class="nav-link">Portfolio</a>
+                        <a href="#portfolio" class="nav-link">
+                            <i class="far fa-images"></i>
+                            <br>
+                            Portfolio
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#who-am-i" class="nav-link">Qui suis-je ?</a>
+                        <a href="#who-am-i" class="nav-link">
+                            <i class="fas fa-question-circle"></i>
+                            <br>
+                            Qui suis-je ?
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
+                        <a href="#contact" class="nav-link">
+                            <i class="fas fa-at"></i>
+                            <br>
+                            Contact
+                        </a>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <section id="about" class="container-fluid curved">   
+        <section id="home" class="container-fluid curved">   
             <div class="col-sm-8 col-lg-4 profile-picture">
-                <img src="images/me.jpg" alt="Photo de moi" class="rounded-circle">
+                <img src="images/photo-cv-resize.jpg" alt="Photo de moi" class="rounded-circle">
             </div>
             <div class="heading">
                 <h2 id="type-writer">Moi c'est Baptiste Bidaux, Développeur Web</h2>
@@ -88,15 +115,14 @@
                         </a>
                     </div>
                 </div>
-                <i class='bx bxs-chevrons-down bx-flip-horizontal bx-fade-down' style='color:#ffffff; font-size: 100px'></i>
+                <i class='bx bxs-chevrons-down bx-flip-horizontal bx-fade-down'></i>
             </div>
         </section>
 
         <section id="skills">
-            <div class="overlay"></div>
-            <div class="blue-divider"></div>
+            <div class="beige-divider"></div>
             <div class="heading">
-                <h2>Compétences</h2>
+                <h2><i class="fas fa-code"></i> Compétences</h2>
             </div>
             <div class="container">
                 <div class="row">
@@ -104,6 +130,7 @@
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" style="width: 85%;">
                                 <h5>
+                                    <i class="fab fa-html5"></i> 
                                     <strong>HTML</strong> 
                                     <small>85%</small>
                                 </h5>
@@ -112,7 +139,10 @@
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" style="width: 85%;">
                                 <h5>
-                                    <strong>CSS - SCSS</strong> 
+                                    <i class="fab fa-css3-alt"></i>
+                                    <strong>CSS & </strong> 
+                                    <i class="fab fa-sass"></i>
+                                    SCSS
                                     <small>85%</small>
                                 </h5>
                             </div>
@@ -120,22 +150,16 @@
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" style="width: 80%;">
                                 <h5>
-                                    <strong>JavaScript - jQuery</strong> 
+                                    <i class="fab fa-js"></i>
+                                    <strong>JavaScript & jQuery + Ajax</strong> 
                                     <small>80%</small>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" style="width: 70%;">
-                                <h5>
-                                    <strong>Ajax</strong> 
-                                    <small>70%</small>
                                 </h5>
                             </div>
                         </div>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" style="width: 80%;">
                                 <h5>
+                                    <i class="fab fa-bootstrap"></i>
                                     <strong>Bootstrap</strong> 
                                     <small>80%</small>
                                 </h5>
@@ -144,6 +168,7 @@
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="30" style="width: 30%;">
                                 <h5>
+                                    <i class="fab fa-react"></i>
                                     <strong>React</strong> 
                                     <small>30%</small>
                                 </h5>
@@ -154,7 +179,10 @@
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80" style="width: 80%;">
                                 <h5>
-                                    <strong>PHP - Symfony</strong> 
+                                    <i class="fab fa-php"></i>
+                                    <strong>PHP & </strong> 
+                                    <i class="fab fa-symfony"></i>
+                                    <strong>Symfony</strong>
                                     <small>80%</small>
                                 </h5>
                             </div>
@@ -162,38 +190,34 @@
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" style="width: 75%;">
                                 <h5>
-                                    <strong>Ms SQL - MySQL</strong>
+                                    <i class="fas fa-database"></i>
+                                    <strong>Ms SQL & MySQL</strong>
                                     <small>75%</small>
                                 </h5>
                             </div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40" style="width: 40%;">
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" style="width: 50%;">
                                 <h5>
+                                    <i class="fas fa-spider"></i>
                                     <strong>API Platform</strong>
-                                    <small>40%</small>
+                                    <small>50%</small>
                                 </h5>
                             </div>
                         </div>
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" style="width: 60%;">
                                 <h5>
+                                    <i class="fab fa-git-alt"></i>
                                     <strong>Git</strong>
                                     <small>60%</small>
                                 </h5>
                             </div>
                         </div>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" style="width: 70%;">
-                                <h5>
-                                    <strong>Pattern MVC</strong>
-                                    <small>70%</small>
-                                </h5>
-                            </div>
-                        </div>
-                        <div class="progress">
                             <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" style="width: 60%;">
                                 <h5>
+                                    <i class="fas fa-language"></i>
                                     <strong>Anglais</strong>
                                     <small>60%</small>
                                 </h5>
@@ -205,11 +229,10 @@
         </section>
 
         <section id="experience" class="slow-curved">
-            <div class="overlay overlay-bgblue slow-curved"></div>
             <div class="container">
                 <div class="white-divider"></div>
                 <div class="heading">
-                    <h2>Expérience Professionnelle</h2>
+                    <h2><i class="fas fa-briefcase"></i> Expérience Professionnelle</h2>
                 </div>
                 <ul class="timeline">
                     <li>
@@ -440,38 +463,34 @@
         </section>
 
         <section id="education">
-            <div class="overlay"></div>
             <div class="container">
-                <div class="blue-divider"></div>
+                <div class="beige-divider"></div>
                 <div class="heading">
-                    <h2>Éducation</h2>
+                    <h2><i class="fas fa-graduation-cap"></i> Éducation</h2>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="education-block">
                             <h6>2019</h6>
-                            <i class="fas fa-graduation-cap"></i>
                             <h4>Titre Professionnel de Développeur Web</h4>
                             <h5>AFPA - Saint-Etienne-Du-Rouvray</h5>
-                            <div class="blue-divider"></div>
+                            <div class="beige-divider"></div>
                             <p>HTML, CSS, JavaScript, Bootstrap</p>
                             <p>PHP, Symfony, MySQL, POO, Pattern MVC</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="education-block">
                             <h6>2006</h6>
-                            <i class="fas fa-graduation-cap"></i>
                             <h4>BTS Banque</h4>
                             <h5>Centre de Formation de la Profession Bancaire</h5>
-                            <div class="blue-divider"></div>
+                            <div class="beige-divider"></div>
                             <p>Option "marché des particuliers"</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <div class="education-block">
                             <h6>2004</h6>
-                            <i class="fas fa-graduation-cap"></i>
                             <h4>Baccalauréat Économique et Social</h4>
                             <h5>Lycée de la Vallée du Cailly</h5>
                         </div>
@@ -481,13 +500,12 @@
         </section>
 
         <section id="portfolio" class="curved">
-            <div class="overlay overlay-bgblue curved"></div>
             <div class="container">
                 <div class="white-divider"></div>
                 <div class="heading">
-                    <h2>Portfolio</h2>
+                    <h2><i class="far fa-images"></i> Portfolio</h2>
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-6 img-box" data-toggle="modal" data-target="#yusitModal">
                         <img src="images/yusit.png" alt="Yusit" class="img-thumbnail">
                     </div>
@@ -627,11 +645,10 @@
         <!-- Fin modals -->
 
         <section id="who-am-i">
-            <div class="overlay"></div>
             <div class="container">
-                <div class="blue-divider"></div>
+                <div class="beige-divider"></div>
                     <div class="heading">
-                        <h2>Qui suis-je ?</h2>
+                        <h2><i class="fas fa-question-circle"></i> Qui suis-je ?</h2>
                     </div>
                     <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -642,15 +659,15 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active" data-interval="3000">
                                     <h3>Curieux, motivé et autonome</h3>
-                                    <h4>"J’ai une envie débordante d’apprendre !"</h4>
+                                    <h4><i class='bx bxs-quote-alt-left' ></i> J’ai une envie débordante d’apprendre ! <i class='bx bxs-quote-alt-right' ></i></h4>
                             </div>
                             <div class="carousel-item" data-interval="3000">
                                     <h3>Rigoureux, organisé, polyvalent</h3>
-                                    <h4>"Je me tiens informé des dernières évolutions !"</h4>
+                                    <h4><i class='bx bxs-quote-alt-left' ></i> Je me tiens informé des dernières évolutions ! <i class='bx bxs-quote-alt-right' ></i></h4>
                             </div>
                             <div class="carousel-item" data-interval="3000">
                                     <h3>Excellent sens du relationnel</h3>
-                                    <h4>"Je souhaite intégrer une équipe soudée !"</h4>
+                                    <h4><i class='bx bxs-quote-alt-left' ></i> Je souhaite intégrer une équipe soudée ! <i class='bx bxs-quote-alt-right' ></i></h4>
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -670,11 +687,10 @@
         </section>
 
         <section id="contact">
-            <div class="overlay overlay-bgblue"></div>
             <div class="container">
                 <div class="white-divider"></div>
                 <div class="heading">
-                    <h2>Contact</h2>
+                    <h2><i class="fas fa-at"></i> Contact</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-10 offset-lg-1">
@@ -687,7 +703,7 @@
                                     <p class="comments"></p>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for="firstName">Prénom <small class="text-muted">(pour les particuliers)</small></label>
+                                    <label for="firstName">Prénom <small>(pour les particuliers)</small></label>
                                     <input type="text" id="firstName" name="firstName" class="form-control" maxlength="30">
                                     <p class="comments"></p>
                                 </div>
@@ -727,13 +743,38 @@
                         </form>
                     </div>
                 </div>
+                <div class="contact-methods row">
+                    <div class="col-md-4 contact-method">
+                        <h4><u>Adresse</u></h4>
+                        <p class="h5">646 route des 2 Tilleuls 76480 roumare</p>
+                    </div>
+                    <div class="col-md-4 contact-method">
+                        <h4><u>Téléphone</u></h4>
+                        <p class="h5">
+                            <a class="nonstyle-link" href="tel:+33617563285">
+                                <i class="fas fa-mobile-alt" aria-hidden="true"></i>
+                                06 17 56 32 85
+                            </a>    
+                        </p>
+                    </div>
+                    <div class="col-md-4 contact-method">
+                        <h4><u>Adresse mail</u></h4>
+                        <p class="h5">
+                            <a class="nonstyle-link" href="mailto:baptistelise@orange.fr&subject=Votre CV en ligne">
+                                <i class="far fa-paper-plane" aria-hidden="true"></i>
+                                baptistelise@orange.fr
+                            </a>    
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <footer class="text-center">
-            <a href="#about">
+            <a href="#home">
                 <i class="fas fa-chevron-up"></i>
             </a>
-            <h5>© <span class="footerDate"></span> - Baptiste Bidaux</h5>
+            <h5>Copyright © Tous droits réservés - Baptiste Bidaux - <span class="footerDate"></span></h5>
         </footer>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
