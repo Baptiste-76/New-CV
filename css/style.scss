@@ -15,11 +15,13 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     width: 100%;
     overflow-x: hidden;
     background: url("../images/wall.jpg") 50% 50% no-repeat;
     background-attachment: fixed;
-    // Technique pour éviter que les éléments de la timeline apparraissent subrepticement avant le début de celle-ci (effet de clignotement) -> cf début du JavaScript
+    // Technique pour éviter que les éléments de la timeline apparaissent subrepticement avant le début de celle-ci (effet de clignotement) -> cf début du JavaScript
     opacity: 0;
 }
 
@@ -49,6 +51,23 @@ section {
     }
 }
 
+.ie-alert {
+    display: none;
+}
+
+// Afficher un message d'alerte aux utilisateurs d'IE
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .ie-alert {
+        display: block;
+        margin-top: 100px;
+
+        a {
+            color: #721c24;
+            font-weight: bold;
+        }
+    }
+ }
+
 .curved {
     border-bottom-left-radius: 50% 20%;
     border-bottom-right-radius: 50% 20%;
@@ -68,6 +87,9 @@ section {
     padding: 18px 50px;
     border-radius: 999px;
     transition: color 0.3s ease-in 0s;
+    -moz-transition: color 0.3s ease-in 0s;
+    -o-transition: color 0.3s ease-in 0s;
+    -webkit-transition: color 0.3s ease-in 0s;
     background: linear-gradient(145deg, #b2ac96, #d4ccb3);
     box-shadow:  9px 9px 18px #a8a28e, 
                         -9px -9px 18px #e4dcc0;
@@ -187,6 +209,12 @@ section {
     }
 }
 
+@media screen and (max-width: 575px) and (orientation: landscape) {
+    .button1 {
+        padding: 14px 35px;
+    }
+}
+
 /* MENU */
 
 .navbar {
@@ -219,7 +247,7 @@ section {
 .navbar-light .navbar-toggler {
     border-style: none;
     /* Permet d'enlever les pointillés qui apparaissent d'office lors de la sélection d'un bouton sur Firefox'*/
-    outline: none;      
+    outline: none;
 }
 
 .navbar-toggler-icon {
@@ -271,6 +299,12 @@ section {
 
     .navbar-nav li a {
         margin: 2px 5px;
+    }
+}
+
+@media screen and (max-width: 399px) {
+    .navbar {
+        font-size: 12px;
     }
 }
 
@@ -336,7 +370,7 @@ section {
 
     &:hover {
         box-shadow: inset 9px 9px 18px #a8a28e, 
-                             inset -9px -9px 18px #e4dcc0;
+                            inset -9px -9px 18px #e4dcc0;
     }
 }
 
@@ -348,6 +382,12 @@ section {
 .bxs-chevrons-down {
     color:#ffffff; 
     font-size: 100px;
+}
+
+@media screen and (max-width: 1920px) {
+    #home .heading  #type-writer {
+        width: 75%;
+    }
 }
 
 @media screen and (max-width: 1439px) {
@@ -447,6 +487,26 @@ section {
     }
 }
 
+@media screen and (max-width: 399px) {
+    .profile-picture {
+        max-width: 50%;
+    }
+
+    #home .heading #type-writer {
+        font-size: 15px;
+    }
+
+    .media-container {
+        margin-bottom: 20px;
+    }
+
+    #home {
+        height: 100vh;
+        padding-top: 70px;
+
+    }
+}
+
 /* SKILLS */
 
 #skills {
@@ -501,6 +561,26 @@ section {
     }
 }
 
+@media screen and (max-width: 575px) and (orientation: landscape) {
+    .progress h5 {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 399px) {
+    .progress {
+        margin: 30px 5px 0 5px !important;
+
+        h5 {
+            font-size: 12px;
+        }
+
+        i {
+            display: none;
+        }
+    }
+}
+
 /* EXPERIENCE */
 
 #experience {
@@ -521,7 +601,7 @@ section {
         top: 0;
         bottom: 0;
         position: absolute;
-        content: " ";
+        content: "";
         width: 5px;
         background: $ternaryColor;
         left: 50%;
@@ -533,7 +613,7 @@ section {
         position: relative;
 
         &:before, &:after {
-            content: " ";
+            content: "";
             display: table;
         }
 
@@ -613,7 +693,7 @@ section {
         border-left:  14px solid $ternaryColor;
         border-right: 0 solid $ternaryColor;
         border-bottom: 14px solid transparent;
-        content: " ";
+        content: "";
     }
 }
 
@@ -697,6 +777,12 @@ section {
     }
 }
 
+@media screen and (max-width:  399px) {
+    .timeline-body {
+        font-size: 12px;
+    }
+}
+
 /* EDUCATION */
 
 #education {
@@ -712,6 +798,7 @@ section {
 .education-block {
     display: flex;
     flex-direction: column;
+    -ms-flex-direction: column;
     justify-content: center;
     align-content: center;
     margin: 0 auto;
@@ -749,6 +836,7 @@ section {
 
     .beige-divider {
         margin-bottom: 20px;
+        box-shadow: none;
     }
 }
 
@@ -785,16 +873,27 @@ section {
     .img-box {
         position: relative;
         perspective: 500px;
+        -moz-perspective: 500px;
+        -ms-perspective: 500px;
+        -webkit-perspective: 500px;
         padding: 10px 15px;
         cursor: pointer;
 
         img {
             transition: transform 1s ease-out;
+            -moz-transition: transform 1s ease-out;
+            -o-transition: transform 1s ease-out;
+            -webkit-transition: transform 1s ease-out;
         }
 
         &:hover img {
-            transform-style:preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
             transform: rotateY(10deg);
+            -moz-transform: rotateY(10deg);
+            -ms-transform: rotateY(10deg);
+            -o-transform: rotateY(10deg);
+            -webkit-transform: rotateY(10deg);
         }
     }
 
@@ -805,7 +904,14 @@ section {
         -webkit-filter: grayscale(100%);
         box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
         transform: rotate(3deg);
+        -moz-transform: rotate(3deg);
+        -ms-transform: rotate(3deg);
+        -o-transform: rotate(3deg);
+        -webkit-transform: rotate(3deg);
         perspective: 500px;
+        -moz-perspective: 500px;
+        -ms-perspective: 500px;
+        -webkit-perspective: 500px;
 
         &:hover {
             filter: none;
@@ -815,6 +921,10 @@ section {
 
     .img-thumbnail-inverted {
         transform: rotate(-3deg);
+        -moz-transform: rotate(-3deg);
+        -ms-transform: rotate(-3deg);
+        -o-transform: rotate(-3deg);
+        -webkit-transform: rotate(-3deg);
     }
 }
 
@@ -839,6 +949,7 @@ section {
 
     h5 {
         margin: 20px 30px;
+        color: #333;
     }
 
     img {
@@ -849,6 +960,12 @@ section {
 @media screen and (max-width: 767px) {
     .img-box {
         width: 70%;
+    }
+}
+
+@media screen and (max-width: 399px) {
+    .img-box {
+        width: 90%;
     }
 }
 
@@ -866,7 +983,7 @@ section {
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
-    color: $primaryColor;
+    color: #333;
     font-size: 30px;
     width: 30px;
     height: 30px;
@@ -892,6 +1009,10 @@ section {
         color: $primaryColor;
         font-style: italic;
         text-shadow: 1px 1px 2px #000;
+    }
+
+    h4 {
+        color: #333;
     }
 }
 
@@ -1002,13 +1123,20 @@ section {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
             transition: 0.4s ease-out;
+            -moz-transition: 0.4s ease-out;
+            -o-transition: 0.4s ease-out;
+            -webkit-transition: 0.4s ease-out;
         }
 
         input, textarea {
             display: block;
             width: 100%;
-            pad: 10px 0px;
+            padding: 10px 0px;
             border: none;
             outline: none;
             background: none;
@@ -1016,6 +1144,9 @@ section {
             color: #333;
             font-size: 20px;
             transition: 0.4s ease-out;
+            -moz-transition: 0.4s ease-out;
+            -o-transition: 0.4s ease-out;
+            -webkit-transition: 0.4s ease-out;
         }
 
         input:hover, input:active, input:focus, textarea:hover, textarea:active, textarea:focus {
@@ -1027,6 +1158,10 @@ section {
         &:focus-within label, &.animation label {
             top: 0px;
             transform: translateY(-100%);
+            -moz-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+            -o-transform: translateY(-100%);
+            -webkit-transform: translateY(-100%);
             border: none;
             outline: none;
         }
@@ -1043,6 +1178,50 @@ section {
     }
 }
 
+// Pour le support de la classe animation pour les navigateurs Edge
+@supports (-ms-ime-align: auto) {
+    .animation label {
+        top: 0px !important;
+        transform: translateY(-100%) !important;
+        -moz-transform: translateY(-100%) !important;
+        -ms-transform: translateY(-100%) !important;
+        -o-transform: translateY(-100%) !important;
+        -webkit-transform: translateY(-100%) !important;
+        border: none;
+        outline: none;
+    }
+
+    .animation input, .animation textarea {
+        border-bottom-color: $primaryColor !important;
+    }
+
+    #contact-form .animation select {
+        border: 3px solid $primaryColor !important;
+    }
+}
+
+// Pour le support de la classe animation pour les navigateurs Internet Explorer
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .animation label {
+        top: 0px !important;
+        transform: translateY(-100%) !important;
+        -moz-transform: translateY(-100%) !important;
+        -ms-transform: translateY(-100%) !important;
+        -o-transform: translateY(-100%) !important;
+        -webkit-transform: translateY(-100%) !important;
+        border: none;
+        outline: none;
+    }
+
+    .animation input, .animation textarea {
+        border-bottom: 3px solid $primaryColor !important;
+    }
+
+    #contact-form .animation select {
+        border: 3px solid $primaryColor !important;
+    }
+ }
+
 .form-control {
     height: 50px;
     font-size: 18px;
@@ -1052,10 +1231,21 @@ section {
     position: absolute;
     bottom: -60px;
     transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
     font-style: italic;
     font-size: 18px;
     color: $primaryColor;
     height: 25px;
+}
+
+// Pour que les messages d'erreur du formulaire s'affichent correctement sur IE
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .comments {
+        left: 10px;
+    }
 }
 
 .thank-you {
@@ -1149,6 +1339,11 @@ section {
         }
     }
 
+    .thank-you {
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
     .form-control {
         font-size: 14px;
     }
@@ -1161,6 +1356,28 @@ section {
         .contact-method {
             margin-bottom: 10px;
         }
+    }
+}
+
+@media screen and (max-width: 575px) and (orientation: landscape) {
+    .thank-you {
+        font-size: 18px;
+    }
+
+    .contact-methods {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 399px) {
+    .thank-you {
+        font-size: 14px;
+    }
+
+    .contact-methods {
+        width: 100%;
     }
 }
 

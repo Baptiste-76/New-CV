@@ -12,7 +12,7 @@
         "phoneError" => "",
         "subjectError" => "",
         "messageError" => "",
-        "isSucces" => false
+        "isSuccess" => false
     ];
     $emailTo = "baptistelise@orange.fr";
 

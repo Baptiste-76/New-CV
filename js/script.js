@@ -1,5 +1,5 @@
 $(function() {
-    // Technique pour éviter que les éléments de la timeline apparraissent subrepticement avant le début de celle-ci (effet de clignotement) -> cf élément body dans le CSS
+    // Technique pour éviter que les éléments de la timeline apparaissent subrepticement avant le début de celle-ci (effet de clignotement) -> cf élément body dans le CSS
     gsap.set('body', {opacity: 1});
 
     // Gestion de la date dynamique dans le footer
@@ -52,25 +52,25 @@ $(function() {
         });
     })
 
-    // Gestion de l'animation sur les inputs du formulaire
+    // Gestion de l'animation sur les inputs du formulaire (je n'utilise pas de fonctions fléchées pour la compatibilité Internet Explorer)
     const inputs = document.querySelectorAll('input');
     const textarea = document.querySelector('textarea');
     const select = document.querySelector('select');
 
     for (let index = 0; index < inputs.length; index++) {
-       let field = inputs[index];
+        let field = inputs[index];
 
-       field.addEventListener('input', (event) => {
-           if (event.target.value != "") {
-               // On ajoute la classe "animation" au form-group qui est parent de l'input qui a actuellement le focus
-               event.target.parentNode.classList.add('animation');
-           } else if (event.target.value == "") {
-                event.target.parentNode.classList.remove('animation');
-           }
-       })
+        field.addEventListener('input', function(event) {
+            if (event.target.value != "") {
+                // On ajoute la classe "animation" au form-group qui est parent de l'input qui a actuellement le focus
+                event.target.parentNode.classList.add('animation');
+            } else if (event.target.value == "") {
+                    event.target.parentNode.classList.remove('animation');
+            }
+        })
     }
 
-    textarea.addEventListener('input', (event) => {
+    textarea.addEventListener('input', function(event) {
         if (event.target.value != "") {
             event.target.parentNode.classList.add('animation');
         } else if (event.target.value == "") {
@@ -78,7 +78,8 @@ $(function() {
         }
     })
 
-    select.addEventListener('input', (event) => {
+    // Pour les éléments <select>, il vaut mieux préférer l'événement 'change' plutôt que 'input' pour la compatibilité IE & Edge
+    select.addEventListener('change', function(event) {
         if (event.target.value != "") {
             event.target.parentNode.classList.add('animation');
         } else if (event.target.value == "") {
@@ -225,7 +226,7 @@ $(function() {
         .setTween(whoAmITL)
         .reverse(false)
         .addTo(controller);
-             
+
     // ---------------
 
     contactSection = $('section#contact');
