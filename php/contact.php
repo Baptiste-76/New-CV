@@ -1,7 +1,5 @@
 <?php
     require("../sendgrid/sendgrid-php/sendgrid-php.php");
-    
-    require
 
     $data = [
         "lastName" => "",
