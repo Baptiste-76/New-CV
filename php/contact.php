@@ -92,8 +92,8 @@
 
         if ($data["isSuccess"]) {
             // Envoi du mail (ne fonctionne pas en local)
-            // $headers = "From: {$data["firstName"]} {$data["lastName"]} <{$data["email"]}>\r\nReply-To: {$data["email"]}";
-            // mail($emailTo, "Nouveau message", $emailToText, $headers);
+            $headers = "From: {$data["firstName"]} {$data["lastName"]} <{$data["email"]}>\r\nReply-To: {$data["email"]}";
+            mail($emailTo, "Nouveau message", $emailToText, $headers);
         }
 
         // On envoie toutes les données au format json pour permettre le traitement AJAX dans le fichier javascript
