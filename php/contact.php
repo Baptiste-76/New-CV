@@ -1,5 +1,5 @@
 <?php
-    require("sendgrid\sendgrid-php\sendgrid-php.php");
+    require("../sendgrid/sendgrid-php/sendgrid-php.php");
     
     require
 
