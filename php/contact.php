@@ -102,13 +102,14 @@
             $content = new SendGrid\Content("text/plain", $emailToText);
             $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-            $apiKey = getenv('SENDGRID_API_KEY');
+            // $apiKey = getenv('SENDGRID_API_KEY');
+            $apiKey = "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";
             $sg = new \SendGrid($apiKey);
 
             $response = $sg->client->mail()->send()->post($mail);
-            echo $response->statusCode();
-            echo $response->headers();
-            echo $response->body();
+            // echo $response->statusCode();
+            // echo $response->headers();
+            // echo $response->body();
         }
 
         // On envoie toutes les données au format json pour permettre le traitement AJAX dans le fichier javascript
