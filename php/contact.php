@@ -1,5 +1,6 @@
 <?php
-    require("../sendgrid-php/sendgrid-php.php");
+
+require '../vendor/autoload.php';
 
     $data = [
         "lastName" => "",
@@ -96,9 +97,9 @@
             // Envoi du mail (ne fonctionne pas en local)
             // $headers = "From: {$data["firstName"]} {$data["lastName"]} <{$data["email"]}>\r\nReply-To: {$data["email"]}";
             // mail($emailTo, "Nouveau message", $emailToText, $headers);
-            $from = new SendGrid\Email(null, $data['email']);
+            $from = new SendGrid\Email($data['lastName'], $data['email']);
             $subject = "Nouveau mail sur le CV en ligne de " . $data['firstName'] . " " . $data['lastName'];
-            $to = new SendGrid\Email(null, "baptistelise@orange.fr");
+            $to = new SendGrid\Email("Baptiste Bidaux", "baptistelise@orange.fr");
             $content = new SendGrid\Content("text/plain", $emailToText);
             $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
@@ -106,9 +107,9 @@
             $sg = new \SendGrid($apiKey);
 
             $response = $sg->client->mail()->send()->post($mail);
-            // echo $response->statusCode();
-            // echo $response->headers();
-            // echo $response->body();
+            echo $response->statusCode();
+            echo $response->headers();
+            echo $response->body();
         }
 
         // On envoie toutes les données au format json pour permettre le traitement AJAX dans le fichier javascript
