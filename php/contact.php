@@ -97,9 +97,9 @@ require("../vendor/autoload.php");
             // Envoi du mail (ne fonctionne pas en local)
             // $headers = "From: {$data["firstName"]} {$data["lastName"]} <{$data["email"]}>\r\nReply-To: {$data["email"]}";
             // mail($emailTo, "Nouveau message", $emailToText, $headers);
-            $from = new SendGrid\Email($data['lastName'], $data['email']);
+            $from = new SendGrid\Email(null, $data['email']);
             $subject = "Nouveau mail sur le CV en ligne de " . $data['firstName'] . " " . $data['lastName'];
-            $to = new SendGrid\Email("Baptiste Bidaux", "baptistelise@orange.fr");
+            $to = new SendGrid\Email(null, "baptistelise@orange.fr");
             $content = new SendGrid\Content("text/plain", $emailToText);
             $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
