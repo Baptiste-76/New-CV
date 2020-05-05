@@ -96,15 +96,13 @@
             // Envoi du mail (ne fonctionne pas en local)
             // $headers = "From: {$data["firstName"]} {$data["lastName"]} <{$data["email"]}>\r\nReply-To: {$data["email"]}";
             // mail($emailTo, "Nouveau message", $emailToText, $headers);
-            // $from = new SendGrid\Email(null, $data['email']);
-            $from = new SendGrid\Email(null, "baptistelise@orange.fr");
+            $from = new SendGrid\Email(null, $data['email']);
             $subject = "Nouveau mail sur le CV en ligne de " . $data['firstName'] . " " . $data['lastName'];
             $to = new SendGrid\Email(null, "baptistelise@orange.fr");
             $content = new SendGrid\Content("text/plain", $emailToText);
             $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-            // $apiKey = getenv('SENDGRID_API_KEY');
-            $apiKey = "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";
+            $apiKey = getenv('SENDGRID_API_KEY');
             $sg = new \SendGrid($apiKey);
 
             $response = $sg->client->mail()->send()->post($mail);
