@@ -1,5 +1,11 @@
 <?php
 
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+
+    require '../vendor/autoload.php';
+
     $data = [
         "lastName" => "",
         "firstName" => "",
@@ -96,6 +102,33 @@
             
             // $headers = "From: {$data["firstName"]} {$data["lastName"]} <{$data["email"]}>\r\nReply-To: {$data["email"]}";
             // mail($emailTo, "Nouveau message", $emailToText, $headers);
+
+            $mail = new PHPMailer(true);
+
+            try {
+                $mail->isSMTP();
+                $mail->CharSet = 'UTF-8';
+
+                $mail->Host = "smtp.orange.fr";
+                $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                $mail->SMTPAuth = true;
+                $mail->Port  = 465;
+                $mail->Username = "baptistelise@orange.fr";
+                $mail->Password = "11Vbjgcjjm10";
+
+                $mail->setFrom($data['email'], $data['lastName']);
+                $mail->addReplyTo($data['email']);
+
+                $mail->isHTML(true);
+                $mail->Subject = "Nouveau message depuis le CV en ligne !";
+                $mail->Body = $emailToText;
+
+                $mail->send();
+                echo 'Message has been sent';
+                
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
         }
 
         // On envoie toutes les données au format json pour permettre le traitement AJAX dans le fichier javascript
