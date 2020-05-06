@@ -110,9 +110,10 @@
                 $mail->CharSet = 'UTF-8';
 
                 $mail->Host = "smtp.orange.fr";
-                $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                $mail->SMTPDebug = 0;
                 $mail->SMTPAuth = true;
                 $mail->Port  = 465;
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                 $mail->Username = "baptistelise@orange.fr";
                 $mail->Password = $_ENV['PASSWORD'];
 
