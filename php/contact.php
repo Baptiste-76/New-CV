@@ -105,32 +105,31 @@
 
             $mail = new PHPMailer(true);
 
-            try {
-                $mail->isSMTP();
-                $mail->CharSet = 'UTF-8';
+            $mail->isSMTP();
+            $mail->CharSet = 'UTF-8';
 
-                $mail->Host = "smtp.orange.fr";
-                $mail->SMTPDebug = 0;
-                $mail->SMTPAuth = true;
-                $mail->Port  = 465;
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-                $mail->Username = "baptistelise@orange.fr";
-                $mail->Password = $_ENV['PASSWORD'];
+            $mail->Host = "smtp.orange.fr";
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mail->SMTPAuth = true;
+            $mail->Port  = 465;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Username = "baptistelise@orange.fr";
+            $mail->Password = $_ENV['PASSWORD'];
 
-                $mail->setFrom($data['email'], $data['lastName']);
-                $mail->addAddress("baptistelise@orange.fr");
-                $mail->addReplyTo($data['email']);
+            $mail->setFrom($data['email'], $data['lastName']);
+            $mail->addAddress("baptistelise@orange.fr");
+            $mail->addReplyTo($data['email']);
 
-                $mail->isHTML(true);
-                $mail->Subject = "Nouveau message depuis le CV en ligne !";
-                $mail->msgHTML($emailToText);
+            $mail->isHTML(true);
+            $mail->Subject = "Nouveau message depuis le CV en ligne !";
+            $mail->msgHTML($emailToText);
 
-                $mail->send();
-                echo 'Message has been sent';
-                
-            } catch (Exception $e) {
-                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            if (!$mail->send()) {
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Message sent!';
             }
+                
         }
 
         // On envoie toutes les données au format json pour permettre le traitement AJAX dans le fichier javascript
