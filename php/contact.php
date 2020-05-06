@@ -123,7 +123,7 @@
 
                 $mail->isHTML(true);
                 $mail->Subject = "Nouveau message depuis le CV en ligne !";
-                $mail->Body = $emailToText;
+                $mail->msgHTML($emailToText);
 
                 $mail->send();
                 echo 'Message has been sent';
