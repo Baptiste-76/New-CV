@@ -19,7 +19,7 @@ $(function() {
     });
 
     // Gestion du formulaire
-    $('#contact-form').submit( function(event) {
+    $('#contact-form').submit(function(event) {
         event.preventDefault();
 
         $(".comments").empty();
@@ -31,7 +31,7 @@ $(function() {
             url: "php/contact.php",
             data: postedData,
             dataType: "json",
-            success: function (response) {
+            success: function(response) {
                 if (response.isSuccess) {
                     // On affiche le message de succès
                     $("#contact-form").append("<div class='thank-you alert alert-success alert-dismissible fade show'><strong>Votre message a bien été envoyé.</strong> Merci de m'avoir contacté ! 😃<button type='button' class='close' data-dismiss='alert' aria-label='Fermer'><span aria-hidden='true'>&times;</span></button></div>");
@@ -48,7 +48,7 @@ $(function() {
                 }
             }
         });
-    })
+    });
 
     // Gestion de l'animation sur les inputs du formulaire (je n'utilise pas de fonctions fléchées pour la compatibilité Internet Explorer)
     const inputs = document.querySelectorAll('input');

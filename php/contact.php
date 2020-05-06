@@ -1,6 +1,5 @@
 <?php
 
-    use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\PHPMailer;
 
     require '../vendor/autoload.php';
@@ -23,12 +22,12 @@
     $emailTo = "baptistelise@orange.fr";
 
     if ($_SERVER['REQUEST_METHOD'] == "POST") {
-        $data["lastName"] = checkInput($_POST['lastName']);
-        $data["firstName"] = checkInput($_POST['firstName']);
-        $data["email"] = checkInput($_POST['email']);
-        $data["phone"] = checkInput($_POST['phone']);
-        $data["subject"] = checkInput($_POST['subject']);
-        $data["message"] = checkInput($_POST['message']);
+        $data["lastName"] = checkInput($_POST["lastName"]);
+        $data["firstName"] = checkInput($_POST["firstName"]);
+        $data["email"] = checkInput($_POST["email"]);
+        $data["phone"] = checkInput($_POST["phone"]);
+        $data["subject"] = checkInput($_POST["subject"]);
+        $data["message"] = checkInput($_POST["message"]);
         $data ["isSuccess"] = true;
         $emailToText = "";
 
@@ -76,7 +75,7 @@
             $emailToText .= "Téléphone: {$data["phone"]} <br>";
         }
 
-        if (empty($data["subject"]) || $data['subject'] === "Quel est le sujet de votre message ?") {
+        if (empty($data["subject"]) || $data["subject"] === "Quel est le sujet de votre message ?") {
             $data["subjectError"] = "De quoi voulez-vous parler ?";
             $data["isSuccess"] = false;
         } else {
@@ -97,29 +96,26 @@
         }
 
         if ($data["isSuccess"]) {
-            // Envoi du mail (ne fonctionne pas en local)
+            // Envoi du mail
 
-            // $headers = "From: {$data["firstName"]} {$data["lastName"]} <{$data["email"]}>\r\nReply-To: {$data["email"]}";
-            // mail($emailTo, "Nouveau message", $emailToText, $headers);
-
-            $mail = new PHPMailer(true);
-            $fullName = (!empty($data['firstName'])) ? $data['firstName'] . " " : "";
-            $fullName .= $data['lastName'];
+            $mail = new PHPMailer();
+            $fullName = (!empty($data["firstName"])) ? $data["firstName"] . " " : "";
+            $fullName .= $data["lastName"];
 
             $mail->isSMTP();
-            $mail->CharSet = 'UTF-8';
+            $mail->CharSet = "UTF-8";
 
             $mail->Host = "smtp.orange.fr";
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mail->SMTPDebug = 0;
             $mail->SMTPAuth = true;
             $mail->Port  = 465;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Username = "baptistelise@orange.fr";
-            $mail->Password = $_ENV['PASSWORD'];
+            $mail->Password = $_ENV["PASSWORD"];
 
-            $mail->setFrom($data['email'], $fullName);
-            $mail->addAddress('baptistelise@orange.fr');
-            $mail->addReplyTo($data['email']);
+            $mail->setFrom($data["email"], $fullName);
+            $mail->addAddress("baptistelise@orange.fr");
+            $mail->addReplyTo($data["email"]);
 
             $mail->isHTML(true);
             $mail->Subject = "Nouveau message depuis le CV en ligne !";
