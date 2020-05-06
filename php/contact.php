@@ -114,7 +114,7 @@
                 $mail->SMTPAuth = true;
                 $mail->Port  = 465;
                 $mail->Username = "baptistelise@orange.fr";
-                $mail->Password = getenv("PASSWORD");
+                $mail->Password = $_ENV['PASSWORD'];
 
                 $mail->setFrom($data['email'], $data['lastName']);
                 $mail->addAddress("baptistelise@orange.fr");
