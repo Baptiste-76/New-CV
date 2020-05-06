@@ -24,8 +24,8 @@ body {
   width: 100%;
   overflow-x: hidden;
   background: url("../images/wall.jpg") 50% 50% no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background-size: cover !important;
+  background-attachment: fixed !important;
   opacity: 0;
 }
 
