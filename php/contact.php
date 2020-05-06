@@ -1,7 +1,6 @@
 <?php
 
     use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\PHPMailer;
 
     require '../vendor/autoload.php';
@@ -43,11 +42,11 @@
             $data["lastNameError"] = "Votre nom doit comporter moins de 30 caractères !";
             $data["isSuccess"] = false;
         } else {
-            $emailToText .= "Nom: {$data["lastName"]} \n";
+            $emailToText .= "Nom: {$data["lastName"]} <br>";
         }
 
         if (empty($data["firstName"])) {
-            $emailToText .= "Prénom: non-renseigné \n";
+            $emailToText .= "Prénom: non-renseigné <br>";
         } else if(strlen($data["firstName"]) < 3) {
             $data["firstNameError"] = "Votre prénom doit comporter au moins 3 caractères !";
             $data["isSuccess"] = false;
@@ -55,7 +54,7 @@
             $data["firstNameError"] = "Votre prénom doit comporter moins de 30 caractères !";
             $data["isSuccess"] = false;
         } else {
-            $emailToText .= "Prénom: {$data["firstName"]} \n";
+            $emailToText .= "Prénom: {$data["firstName"]} <br>";
         }
 
         if (empty($data["email"])) {
@@ -65,23 +64,23 @@
             $data["emailError"] = "Bizarre ce mail non !?";
             $data["isSuccess"] = false;
         } else {
-            $emailToText .= "Email: {$data["email"]} \n";
+            $emailToText .= "Email: {$data["email"]} <br>";
         }
 
         if (empty($data["phone"])) {
-            $emailToText .= "Téléphone: non-renseigné \n";
+            $emailToText .= "Téléphone: non-renseigné <br>";
         } else if (!isPhone($data["phone"])) {
             $data["phoneError"] = "Votre numéro de téléphone ne semble pas valide !";
             $data["isSuccess"] = false;
         } else {
-            $emailToText .= "Téléphone: {$data["phone"]} \n";
+            $emailToText .= "Téléphone: {$data["phone"]} <br>";
         }
 
         if (empty($data["subject"]) || $data['subject'] === "Quel est le sujet de votre message ?") {
             $data["subjectError"] = "De quoi voulez-vous parler ?";
             $data["isSuccess"] = false;
         } else {
-            $emailToText .= "Sujet: {$data["subject"]} \n";
+            $emailToText .= "Sujet: {$data["subject"]} <br>";
         }
 
         if (empty($data["message"])) {
@@ -94,16 +93,18 @@
             $data["messageError"] = "Votre message doit comporter moins de 10000 caractères !";
             $data["isSuccess"] = false;
         } else {
-            $emailToText .= "Message: {$data["message"]} \n";
+            $emailToText .= "Message: {$data["message"]} <br>";
         }
 
         if ($data["isSuccess"]) {
             // Envoi du mail (ne fonctionne pas en local)
-            
+
             // $headers = "From: {$data["firstName"]} {$data["lastName"]} <{$data["email"]}>\r\nReply-To: {$data["email"]}";
             // mail($emailTo, "Nouveau message", $emailToText, $headers);
 
             $mail = new PHPMailer(true);
+            $fullName = (!empty($data['firstName'])) ? $data['firstName'] . " " : "";
+            $fullName .= $data['lastName'];
 
             $mail->isSMTP();
             $mail->CharSet = 'UTF-8';
@@ -116,20 +117,15 @@
             $mail->Username = "baptistelise@orange.fr";
             $mail->Password = $_ENV['PASSWORD'];
 
-            $mail->setFrom($data['email'], $data['lastName']);
-            $mail->addAddress("baptistelise@orange.fr");
+            $mail->setFrom($data['email'], $fullName);
+            $mail->addAddress('baptistelise@orange.fr');
             $mail->addReplyTo($data['email']);
 
             $mail->isHTML(true);
             $mail->Subject = "Nouveau message depuis le CV en ligne !";
-            $mail->msgHTML($emailToText);
+            $mail->Body = $emailToText;
 
-            if (!$mail->send()) {
-                echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } else {
-                echo 'Message sent!';
-            }
-                
+            $mail->send();
         }
 
         // On envoie toutes les données au format json pour permettre le traitement AJAX dans le fichier javascript
@@ -154,4 +150,3 @@
 
         return $var;
     }
-?>
