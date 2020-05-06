@@ -1,7 +1,5 @@
 <?php
 
-require '../vendor/autoload.php';
-
     $data = [
         "lastName" => "",
         "firstName" => "",
@@ -95,21 +93,9 @@ require '../vendor/autoload.php';
 
         if ($data["isSuccess"]) {
             // Envoi du mail (ne fonctionne pas en local)
+            
             // $headers = "From: {$data["firstName"]} {$data["lastName"]} <{$data["email"]}>\r\nReply-To: {$data["email"]}";
             // mail($emailTo, "Nouveau message", $emailToText, $headers);
-            $from = new SendGrid\Email(null, $data['email']);
-            $subject = "Nouveau mail sur le CV en ligne de " . $data['firstName'] . " " . $data['lastName'];
-            $to = new SendGrid\Email(null, "baptistelise@orange.fr");
-            $content = new SendGrid\Content("text/plain", $emailToText);
-            $mail = new SendGrid\Mail($from, $subject, $to, $content);
-
-            $apiKey = getenv('SENDGRID_API_KEY');
-            $sg = new \SendGrid($apiKey);
-
-            $response = $sg->client->mail()->send()->post($mail);
-            echo $response->statusCode();
-            echo $response->headers();
-            echo $response->body();
         }
 
         // On envoie toutes les données au format json pour permettre le traitement AJAX dans le fichier javascript
