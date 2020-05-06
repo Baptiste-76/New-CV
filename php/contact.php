@@ -1,8 +1,8 @@
 <?php
 
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+    use PHPMailer\PHPMailer\PHPMailer;
 
     require '../vendor/autoload.php';
 
@@ -107,7 +107,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
             try {
                 $mail->isSMTP();
-                // $mail->CharSet = 'UTF-8';
+                $mail->CharSet = 'UTF-8';
 
                 $mail->Host = "smtp.orange.fr";
                 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
