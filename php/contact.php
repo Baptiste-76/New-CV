@@ -5,7 +5,6 @@ use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 
     require '../vendor/autoload.php';
-    require 'password.php';
 
     $data = [
         "lastName" => "",
@@ -115,7 +114,7 @@ use PHPMailer\PHPMailer\PHPMailer;
                 $mail->SMTPAuth = true;
                 $mail->Port  = 465;
                 $mail->Username = "baptistelise@orange.fr";
-                $mail->Password = $password;
+                $mail->Password = getenv("PASSWORD");
 
                 $mail->setFrom($data['email'], $data['lastName']);
                 $mail->addAddress("baptistelise@orange.fr");
