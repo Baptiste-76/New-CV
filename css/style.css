@@ -26,6 +26,10 @@ body {
   background: url("../images/wall.jpg") 50% 50% no-repeat;
   background-size: cover !important;
   background-attachment: fixed !important;
+  background-clip: border-box;
+  background-color: transparent;
+  background-origin: padding-box;
+  background-position: right top;
   opacity: 0;
 }
 
