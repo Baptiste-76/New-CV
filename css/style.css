@@ -23,10 +23,16 @@ body {
   -webkit-box-sizing: border-box;
   width: 100%;
   overflow-x: hidden;
+  opacity: 0;
+}
+
+#fixebg {
   background: url("../images/wall.jpg") 50% 50% no-repeat;
   background-size: cover !important;
-  background-attachment: fixed !important;
-  opacity: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
 }
 
 h1, h2, h3, h4, h5, h6 {
