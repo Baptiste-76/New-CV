@@ -908,7 +908,10 @@ section .heading .h2 {
 }
 
 .modal-body {
-  background: url("../images/wall.jpg");
+  background: url("../images/wall.jpg") 50% 50% no-repeat;
+  background-size: cover !important;
+  height: 100%;
+  width: 100%;
 }
 
 .modal-body h5 {
