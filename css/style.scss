@@ -26,14 +26,16 @@ body {
     background: url("../images/wall.jpg") 50% 50% no-repeat;
     background-size: cover !important;
     background-attachment: fixed !important;
-
-    background-clip: border-box;
-    background-color: transparent;
-    background-origin: padding-box;
-    background-position: right top;
-    
     // Technique pour éviter que les éléments de la timeline apparaissent subrepticement avant le début de celle-ci (effet de clignotement) -> cf début du JavaScript
     opacity: 0;
+}
+
+#fixebg {
+    background: url("../images/wall.jpg") top;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
 }
 
 h1, h2, h3, h4, h5, h6 {
