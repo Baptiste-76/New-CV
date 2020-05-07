@@ -500,7 +500,7 @@ section {
     }
 
     #home {
-        height: 100vh;
+        height: 100%;
         padding-top: 70px;
 
     }
@@ -972,6 +972,9 @@ section {
     line-height: 1.5;
     border-radius: .25rem;
     transition: all .15s ease-in-out;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 }
 
 @media screen and (max-width: 767px) {
