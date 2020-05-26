@@ -50,6 +50,11 @@ $(function() {
         });
     });
 
+    // Si la page est refresh par l'utilisateur, on reset le formulaire pour éviter les bugs d'affichage
+    if (window.performance && performance.navigation.type == 1) {
+        $("#contact-form")[0].reset();
+    }
+
     // Gestion de l'animation sur les inputs du formulaire (je n'utilise pas de fonctions fléchées pour la compatibilité Internet Explorer)
     const inputs = document.querySelectorAll('input');
     const textarea = document.querySelector('textarea');
@@ -88,29 +93,33 @@ $(function() {
     // Gestion du typewriter
     const textAnim = document.querySelector('.heading h2#type-writer');
     
-    new Typewriter(textAnim, {
-        delay: 50,
-        deleteSpeed: 30,
-        loop: true
-    })
-    .typeString("Moi c'est Baptiste Bidaux, ")
-    .pauseFor(400)
-    .typeString("<strong>Développeur Web Full-Stack</strong> !")
-    .pauseFor(1500)
-    .deleteChars(16)
-    .typeString("<span style=\"color: #4caf50; font-weight: 900;\">HTML - CSS - SCSS</span> !")
-    .pauseFor(1500)
-    .deleteChars(19)
-    .typeString("<span style=\"color: #563d7c; font-weight: 900;\">Bootstrap</span> !")
-    .pauseFor(1500)
-    .deleteChars(11)
-    .typeString("<span style=\"color: #777bb3; font-weight: 900;\">PHP - Symfony</span> !")
-    .pauseFor(1500)
-    .deleteChars(15)
-    .typeString("<span style=\"color: #f7df1e; font-weight: 900;\">JavaScript</span> !")
-    .pauseFor(1500)
-    .deleteAll()
-    .start()
+    function typeWritter() {
+        new Typewriter(textAnim, {
+            delay: 50,
+            deleteSpeed: 30,
+            loop: true
+        })
+        .typeString(document.body.classList.contains('light') ? "Moi c'est Baptiste Bidaux, " : "<span style=\"color: #c6bfa7;\">Moi c'est Baptiste Bidaux, </span>")
+        .pauseFor(400)
+        .typeString(document.body.classList.contains('light') ? "<strong>Développeur Web Full-Stack</strong> !" : "<strong style=\"color: #c6bfa7;\">Développeur Web Full-Stack !</strong>")
+        .pauseFor(1500)
+        .deleteChars(16)
+        .typeString("<span style=\"color: #4caf50; font-weight: 900;\">HTML - CSS - SCSS</span> !")
+        .pauseFor(1500)
+        .deleteChars(19)
+        .typeString("<span style=\"color: #563d7c; font-weight: 900;\">Bootstrap</span> !")
+        .pauseFor(1500)
+        .deleteChars(11)
+        .typeString("<span style=\"color: #777bb3; font-weight: 900;\">PHP - Symfony</span> !")
+        .pauseFor(1500)
+        .deleteChars(15)
+        .typeString("<span style=\"color: #f7df1e; font-weight: 900;\">JavaScript</span> !")
+        .pauseFor(1500)
+        .deleteAll()
+        .start()
+    }
+
+    typeWritter();
 
     // Animations GreenSock
     var TL = gsap.timeline();
@@ -248,4 +257,33 @@ $(function() {
         .setTween(contactTL)
         .reverse(false)
         .addTo(controller);
+
+    // Gestion du mode jour/nuit
+    const btnToggle = document.querySelector('.btn-toggle');
+    const btnIcon = document.querySelector('.btn-toggle i');
+    const root = document.documentElement;
+
+    btnToggle.addEventListener('click', () => {
+        const body = document.body;
+
+        if (body.classList.contains('dark')) {
+
+            body.classList.replace('dark', 'light');
+            btnIcon.classList.replace('fa-sun', 'fa-moon');
+            root.style.setProperty('--primary-color', '#c6bfa7');
+            root.style.setProperty('--secondary-color', '#fcefee');
+            root.style.setProperty('--ternary-color', '#fff');
+            typeWritter();
+
+        } else if (body.classList.contains('light')) {
+
+            body.classList.replace('light', 'dark');
+            btnIcon.classList.replace('fa-moon', 'fa-sun');
+            root.style.setProperty('--primary-color', '#202020');
+            root.style.setProperty('--secondary-color', '#333');
+            root.style.setProperty('--ternary-color', '#c6bfa7');
+            typeWritter();
+
+        }
+    })
 })
