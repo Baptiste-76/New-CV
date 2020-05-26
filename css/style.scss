@@ -5,14 +5,22 @@
     --ternary-color: #fff;
 }
 
+// Pour compatibilité IE
+$primary-color: #c6bfa7;
+$secondary-color: #fcefee;
+$ternary-color: #fff;
+
 ::-moz-selection {
+    background: $primary-color;
     background: var(--primary-color);
+    color: $ternary-color;
     color: var(--ternary-color);
 }
 
-
 ::selection {
+    background: $primary-color;
     background: var(--primary-color);
+    color: $ternary-color;
     color: var(--ternary-color);
 }
 
@@ -90,6 +98,10 @@ section {
             font-weight: bold;
         }
     }
+
+    .btn-toggle {
+        display: none !important;
+    }
  }
 
 .curved {
@@ -120,6 +132,7 @@ section {
 }
 
 body.dark .button1 {
+    color: $ternary-color;
     color: var(--ternary-color);
     background: linear-gradient(145deg, #1d1d1d, #222222);
     box-shadow:  9px 9px 18px #1b1b1b, 
@@ -127,6 +140,7 @@ body.dark .button1 {
 }
 
 .beige-divider {
+    background: $primary-color;
     background: var(--primary-color);
     width: 100px;
     height: 2px;
@@ -135,6 +149,7 @@ body.dark .button1 {
 }
 
 .white-divider {
+    background: $ternary-color;
     background: var(--ternary-color);
     width: 100px;
     height: 2px;
@@ -179,6 +194,7 @@ body.dark {
     }
     
     .beige-divider {
+        background: $ternary-color;
         background: var(--ternary-color);
     }
 }
@@ -325,10 +341,12 @@ body.dark {
 /* MENU */
 
 .navbar {
+    background: $primary-color;
     background: var(--primary-color);
     font-size: 16px;
     letter-spacing: 4px;
     text-transform: uppercase;
+    border-bottom: 1px solid $ternary-color;
     border-bottom: 1px solid var(--ternary-color);
 
     .navbar-collapse {
@@ -337,16 +355,20 @@ body.dark {
 }
 
 .nav-pills .nav-link {
+    color: $ternary-color !important;
     color: var(--ternary-color) !important;
     text-align: center;
 
     &.active, &:hover {
+        color: $primary-color !important;
         color: var(--primary-color) !important;
+        background: $ternary-color !important;
         background: var(--ternary-color) !important;
     }
 }
 
 .navbar-nav li a {
+    color: $ternary-color !important;
     color: var(--ternary-color) !important;
     margin: 5px 10px;
 }
@@ -423,6 +445,7 @@ body.dark .navbar-toggler-icon {
 
 #home {
     padding-top: 100px;
+    background: $primary-color;
     background: var(--primary-color);
 
     .heading #type-writer {
@@ -453,8 +476,10 @@ body.dark .navbar-toggler-icon {
 }
 
 .button1:hover {
+    color: $ternary-color;
     color: var(--ternary-color);
     text-decoration: none;
+    background: $primary-color;
     background: var(--primary-color);
     box-shadow: inset 9px 9px 18px #a8a28e, 
                         inset -9px -9px 18px #e4dcc0;
@@ -493,6 +518,7 @@ body.dark .button1:hover {
 }
 
 body.dark .media-btn {
+    color: $ternary-color;
     color: var(--ternary-color);
     background: linear-gradient(145deg, #1d1d1d, #222222);
     box-shadow:  9px 9px 18px #1b1b1b, 
@@ -507,10 +533,12 @@ body.dark .media-btn {
 
 .icone {
     font-size: 30px;
+    color: $ternary-color;
     color: var(--ternary-color);
 }
 
 .bxs-chevrons-down {
+    color: $ternary-color;
     color: var(--ternary-color); 
     font-size: 100px;
 }
@@ -644,6 +672,7 @@ body.dark .media-btn {
     position: relative;
 
     .heading h2 {
+        color: $primary-color;
         color: var(--primary-color);
         margin-top: 40px;
         text-shadow: 1px 1px 2px #000;
@@ -663,6 +692,7 @@ body.dark .media-btn {
     }
 
     .progress-bar {
+        background: $primary-color;
         background: var(--primary-color);
         color: #888;
     }
@@ -678,10 +708,12 @@ body.dark #skills {
     }
 
     .progress h5 {
+        color: $ternary-color;
         color: var(--ternary-color);
     }
 
     .progress-bar {
+        background: $secondary-color;
         background: var(--secondary-color);
     }
 }
@@ -733,10 +765,12 @@ body.dark #skills {
 /* EXPERIENCE */
 
 #experience {
+    background: $primary-color;
     background: var(--primary-color);
     position: relative;
 
     .heading h2 {
+        color: $ternary-color;
         color: var(--ternary-color);
         margin-top: 40px;
     }
@@ -752,6 +786,7 @@ body.dark #skills {
         position: absolute;
         content: "";
         width: 5px;
+        background: $ternary-color;
         background: var(--ternary-color);
         left: 50%;
         margin-left: -2.5px;
@@ -791,6 +826,7 @@ body.dark #skills {
 
     a {
         text-decoration: none;
+        color: $primary-color;
         color: var(--primary-color);
     
         &:hover {
@@ -831,6 +867,7 @@ body.dark #skills {
     padding: 20px 25px;
     position: relative;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    background: $ternary-color;
     background: var(--ternary-color);
 
     &:after {
@@ -839,7 +876,9 @@ body.dark #skills {
         right: -14px;
         display: inline-block;
         border-top: 14px solid transparent;
+        border-left: 14px solid $ternary-color;
         border-left:  14px solid var(--ternary-color);
+        border-right: 0 solid $ternary-color;
         border-right: 0 solid var(--ternary-color);
         border-bottom: 14px solid transparent;
         content: "";
@@ -853,6 +892,7 @@ body.dark #skills {
     }
 
     h4 {
+        color: $primary-color;
         color: var(--primary-color);
     }
 }
@@ -861,9 +901,20 @@ body.dark {
     .timeline-panel {
         background: #888;
         border: 1px solid #000;
+
+        &:after {
+            border-left: 14px solid #888;
+            border-right: 0 solid #888;
+        }
+    }
+
+    .timeline-panel-container-inverted .timeline-panel::after {
+        border-left-width: 0;
+        border-right-width: 14px;
     }
 
     .timeline-heading h4 {
+        color: $ternary-color;
         color: var(--ternary-color);
     }
 
@@ -961,6 +1012,7 @@ body.dark {
     position: relative;
 
     .heading h2 {
+        color: $primary-color;
         color: var(--primary-color);
         margin-top: 40px;
         text-shadow: 1px 1px 2px #000;
@@ -993,6 +1045,7 @@ body.dark {
     }
 
     h4 {
+        color: $primary-color;
         color: var(--primary-color);
         margin-top: 20px;
     }
@@ -1013,6 +1066,7 @@ body.dark {
 
 body.dark #education {
     .heading h2 {
+        color: $ternary-color;
         color: var(--ternary-color);
     }
 
@@ -1020,6 +1074,7 @@ body.dark #education {
         background: #888;
 
         h4 {
+            color: $ternary-color;
             color: var(--ternary-color);
         }
     }
@@ -1046,11 +1101,13 @@ body.dark #education {
 /* PORTFOLIO */
 
 #portfolio {
+    background: $primary-color;
     background: var(--primary-color);
     min-height: 60vh;
     position: relative;
 
     .heading h2 {
+        color: $ternary-color;
         color: var(--ternary-color);
         margin-top: 40px;
     }
@@ -1116,16 +1173,19 @@ body.dark #education {
 }
 
 .modal-content {
+    background-color: $primary-color;
     background-color: var(--primary-color);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 .modal-header {
     .modal-title {
+        color: $secondary-color;
         color: var(--secondary-color);
     }
 
     span {
+        color: $secondary-color;
         color: var(--secondary-color);
     }
 }
@@ -1148,6 +1208,7 @@ body.dark #education {
 
 .modal-footer a {
     cursor: pointer;
+    color: $ternary-color !important;
     color: var(--ternary-color) !important;
     background-color: #28a745;
     border-color: #28a745;
@@ -1179,10 +1240,12 @@ body.dark #education {
 body.dark {
     .modal-header {
         .modal-title {
+            color: $ternary-color;
             color: var(--ternary-color);
         }
     
         span {
+            color: $ternary-color;
             color: var(--ternary-color);
             text-shadow: none;
         }
@@ -1190,6 +1253,7 @@ body.dark {
 
     .modal-body h5 {
         color: #d5d5d5;
+        text-shadow: 1px 1px 2px $primary-color;
         text-shadow: 1px 1px 2px var(--primary-color);
     }
 
@@ -1217,6 +1281,7 @@ body.dark {
     position: relative;
 
     .heading h2 {
+        color: $primary-color;
         color: var(--primary-color);
         margin-top: 40px;
         text-shadow: 1px 1px 2px #000;
@@ -1233,12 +1298,14 @@ body.dark {
 
 .carousel-indicators > li {
     border-radius: 50%;
+    border: 1px solid $primary-color;
     border: 1px solid var(--primary-color);
     width: 12px;
     height: 12px;
     box-shadow: 1px 1px 1px #000;
 
     &.active {
+        background-color: $primary-color;
         background-color: var(--primary-color);
     }
 }
@@ -1247,6 +1314,7 @@ body.dark {
     padding: 40px 30px;
 
     h3 {
+        color: $primary-color;
         color: var(--primary-color);
         font-style: italic;
         text-shadow: 1px 1px 2px #000;
@@ -1259,24 +1327,29 @@ body.dark {
 
 body.dark #who-am-i{
     .heading h2 {
+        color: $ternary-color;
         color: var(--ternary-color);
     }
 
     .carousel-control-prev-icon, .carousel-control-next-icon {
+        color: $ternary-color;
         color: var(--ternary-color);
     }
 
     .carousel-indicators > li {
         background: #333;
+        border: 1px solid $ternary-color;
         border: 1px solid var(--ternary-color);
 
         &.active {
+            background-color: $ternary-color;
             background-color: var(--ternary-color);
         }
     }
 
     #myCarousel .carousel-item {
         h3 {
+            color: $ternary-color;
             color: var(--ternary-color);
         }
 
@@ -1333,10 +1406,12 @@ body.dark #who-am-i{
 /* CONTACT */
 
 #contact {
+    background: $primary-color;
     background: var(--primary-color);
     position: relative;
 
     .heading h2 {
+        color: $ternary-color;
         color: var(--ternary-color);
         margin-top: 40px;
     }
@@ -1344,7 +1419,9 @@ body.dark #who-am-i{
 
 #contact-form {
     font-size: 20px;
+    background-color: $secondary-color;
     background-color: var(--secondary-color);
+    color: $primary-color;
     color: var(--primary-color);
     padding: 50px 80px;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -1354,14 +1431,21 @@ body.dark #who-am-i{
         margin: 40px auto 0px;
         display: block;
         border: none !important;
+        color: $primary-color;
         color: var(--primary-color);
+        background: linear-gradient(145deg, #e6e6e6, $ternary-color);
         background: linear-gradient(145deg, #e6e6e6, var(--ternary-color));
+        box-shadow:  9px 9px 18px #d6cbca, 
+                            -9px -9px 18px $ternary-color;
         box-shadow:  9px 9px 18px #d6cbca, 
                             -9px -9px 18px var(--ternary-color);
     }
 
     input[type=submit]:hover {
+        background: $ternary-color;
         background: var(--ternary-color);
+        box-shadow: inset 9px 9px 18px #d6cbca, 
+                            inset -9px -9px 18px $ternary-color;
         box-shadow: inset 9px 9px 18px #d6cbca, 
                             inset -9px -9px 18px var(--ternary-color);
 
@@ -1439,12 +1523,14 @@ body.dark #who-am-i{
         }
 
         &:focus-within input, &.animation input, &:focus-within textarea, &.animation textarea {
+            border-bottom-color: $primary-color;
             border-bottom-color: var(--primary-color);
         }
     }
 
     .form-group:nth-child(5) {
         &:focus-within select, &.animation select {
+            border-color: $primary-color !important;
             border-color: var(--primary-color) !important;
         }
     }
@@ -1452,6 +1538,7 @@ body.dark #who-am-i{
 
 body.dark {
     #contact-form {
+        color: $ternary-color;
         color: var(--ternary-color);
 
         .form-group:not(:nth-child(5)) {
@@ -1460,11 +1547,13 @@ body.dark {
             }
 
             &:focus-within input, &.animation input, &:focus-within textarea, &.animation textarea {
+                border-bottom-color: $ternary-color;
                 border-bottom-color: var(--ternary-color);
             }
         }
 
         .comments {
+            color: $ternary-color;
             color: var(--ternary-color);
         }
 
@@ -1474,6 +1563,7 @@ body.dark {
     }
 
     input[type=submit] {
+        color: $ternary-color !important;
         color: var(--ternary-color) !important;
         background: linear-gradient(145deg, #292929, #303030) !important;
         box-shadow:  9px 9px 18px #262626, 
@@ -1486,9 +1576,11 @@ body.dark {
     }
 
     .contact-methods {
+        color: $ternary-color;
         color: var(--ternary-color);
 
         .nonstyle-link {
+            color: $ternary-color;
             color: var(--ternary-color);
         }
     }
@@ -1508,10 +1600,12 @@ body.dark {
     }
 
     .animation input, .animation textarea {
+        border-bottom-color: $primary-color !important;
         border-bottom-color: var(--primary-color) !important;
     }
 
     #contact-form .animation select {
+        border: 3px solid $primary-color !important;
         border: 3px solid var(--primary-color) !important;
     }
 }
@@ -1530,10 +1624,12 @@ body.dark {
     }
 
     .animation input, .animation textarea {
+        border-bottom: 3px solid $primary-color !important;
         border-bottom: 3px solid var(--primary-color) !important;
     }
 
     #contact-form .animation select {
+        border: 3px solid $primary-color !important;
         border: 3px solid var(--primary-color) !important;
     }
  }
@@ -1553,6 +1649,7 @@ body.dark {
     -webkit-transform: translateY(-50%);
     font-style: italic;
     font-size: 18px;
+    color: $primary-color;
     color: var(--primary-color);
     height: 25px;
 }
@@ -1574,7 +1671,9 @@ body.dark {
 .contact-methods {
     margin-top: 50px;
     text-align: center;
+    color: $primary-color;
     color: var(--primary-color);
+    background-color: $secondary-color;
     background-color: var(--secondary-color);
     padding: 20px 40px;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -1582,6 +1681,7 @@ body.dark {
 
     .nonstyle-link {
         text-decoration: none;
+        color: $primary-color;
         color: var(--primary-color);
     }
 }
@@ -1706,6 +1806,7 @@ footer {
     .fa-chevron-up {
         font-size: 25px;
         margin: 20px;
+        color: $primary-color;
         color: var(--primary-color);
         height: 35px;
 
@@ -1715,6 +1816,7 @@ footer {
     }
 
     h5 {
+        color: $ternary-color;
         color: var(--ternary-color);
         font-weight: normal;
     }
