@@ -263,7 +263,7 @@ $(function() {
     const btnIcon = document.querySelector('.btn-toggle i');
     const root = document.documentElement;
 
-    btnToggle.addEventListener('click', () => {
+    btnToggle.addEventListener('click', function() {
         const body = document.body;
 
         if (body.classList.contains('dark')) {
