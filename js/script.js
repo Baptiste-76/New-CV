@@ -1,3 +1,12 @@
+// Animation pulse du bouton light / dark theme
+window.addEventListener('load', () => {
+    const btnToggle = document.querySelector('.btn-toggle');
+
+    setTimeout(() => {
+        btnToggle.classList.remove('pulsed');
+    }, 10000)
+});
+
 $(function() {
     // Technique pour éviter que les éléments de la timeline apparaissent subrepticement avant le début de celle-ci (effet de clignotement) -> cf élément body dans le CSS
     gsap.set('body', {opacity: 1});
@@ -113,7 +122,7 @@ $(function() {
         .typeString("<span style=\"color: #777bb3; font-weight: 900;\">PHP - Symfony</span> !")
         .pauseFor(1500)
         .deleteChars(15)
-        .typeString("<span style=\"color: #f7df1e; font-weight: 900;\">JavaScript</span> !")
+        .typeString("<span style=\"color: #f7df1e; font-weight: 900;\">JavaScript - React</span> !")
         .pauseFor(1500)
         .deleteAll()
         .start()
@@ -128,6 +137,7 @@ $(function() {
     TL
         .from('.profile-picture', {duration: 1.5, autoAlpha: 0 , x: "-70vw", ease: "back.out(2)"})
         .from('#type-writer', {duration: 1.5, autoAlpha: 0 , x: "+70vw", ease: "back.out(2)"}, "<")
+        .from('.btn-toggle', {duration: 1.5, autoAlpha: 0, x: "+70vw", ease: "back.out(2)"}, "<")
         .from('.nav-item', {duration: 0.5, stagger: 0.3, y: 50, opacity: 0}, "-=0.5")
         .from(social, {duration: 2, stagger: 0.3, autoAlpha: 0, y: "+70vh"}, "<")
         .from('.bxs-chevrons-down', {duration: 2, autoAlpha: 0})
