@@ -103,13 +103,14 @@
             $fullName .= $data["lastName"];
 
             $mail->isSMTP();
-            $mail->CharSet = "UTF-8";
+            // $mail->CharSet = "UTF-8";
 
             $mail->Host = "smtp.orange.fr";
-            $mail->SMTPDebug = 0;
+            // $mail->SMTPDebug = 0;
             $mail->SMTPAuth = true;
             $mail->Port  = 465;
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            // $mail->SMTPSecure = "PHPMailer::ENCRYPTION_SMTPS";
+            $mail->SMTPSecure = "ssl";
             $mail->Username = "baptistelise@orange.fr";
             $mail->Password = $_ENV["PASSWORD"];
 
