@@ -108,7 +108,7 @@
             $mail->Host = "smtp.orange.fr";
             $mail->SMTPDebug = 0;
             $mail->SMTPAuth = true;
-            $mail->Port  = 465;
+            $mail->Port  = 587;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Username = "baptistelise@orange.fr";
             $mail->Password = $_ENV["PASSWORD"];
