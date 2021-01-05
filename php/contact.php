@@ -109,10 +109,19 @@
             // $mail->SMTPDebug = 0;
             $mail->SMTPAuth = true;
             $mail->Port  = 465;
-            // $mail->SMTPSecure = "PHPMailer::ENCRYPTION_SMTPS";
-            $mail->SMTPSecure = "ssl";
+            $mail->SMTPSecure = "PHPMailer::ENCRYPTION_SMTPS";
             $mail->Username = "baptistelise@orange.fr";
             $mail->Password = $_ENV["PASSWORD"];
+
+            $mail->SMTPOptions = array(
+                'ssl' => [
+                    'verify_peer' => true,
+                    'verify_depth' => 3,
+                    'allow_self_signed' => true,
+                    'peer_name' => 'smtp.orange.fr',
+                    'cafile' => '/etc/ssl/ca_cert.pem',
+                ],
+            );
 
             $mail->setFrom($data["email"], $fullName);
             $mail->addAddress("baptistelise@orange.fr");
