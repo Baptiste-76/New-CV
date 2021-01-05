@@ -106,7 +106,7 @@
             $mail->CharSet = "UTF-8";
 
             $mail->Host = "smtp.orange.fr";
-            $mail->SMTPDebug = 0;
+            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
             $mail->SMTPAuth = true;
             $mail->Port  = 465;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
