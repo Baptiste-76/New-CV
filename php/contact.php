@@ -98,7 +98,7 @@
         if ($data["isSuccess"]) {
             // Envoi du mail
 
-            $mail = new PHPMailer();
+            $mail = new PHPMailer(true);
             $fullName = (!empty($data["firstName"])) ? $data["firstName"] . " " : "";
             $fullName .= $data["lastName"];
 
@@ -109,12 +109,12 @@
             $mail->SMTPDebug = 0;
             $mail->SMTPAuth = true;
             $mail->Port  = 465;
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->SMTPSecure = "ssl";
             $mail->Username = "baptistelise@orange.fr";
             $mail->Password = $_ENV["PASSWORD"];
 
-            $mail->setFrom($data["email"], $fullName);
-            $mail->addAddress("baptistelise@orange.fr");
+            $mail->setFrom("baptistelise@orange.fr", $fullName);
+            $mail->addAddress("baptistelise@orange.fr", "Baptiste Bidaux");
             $mail->addReplyTo($data["email"]);
 
             $mail->isHTML(true);
